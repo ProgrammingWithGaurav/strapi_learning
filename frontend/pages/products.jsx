@@ -16,27 +16,27 @@ const Products = (props) => {
           </div>
           <div className="flex flex-wrap -m-4">
             {props?.products?.data.map((item) => (
-              <div className="xl:w-1/4 md:w-1/2 p-4">
+              <div key={item.attributes.slug} className="xl:w-1/4 md:w-1/2 p-4">
                 <div className="bg-gray-100 p-6 rounded-lg">
                   <img
-                    className="h-96 m-auto mb-[23px] rounded w-full object-center"
+                    className="h-96 rounded m-auto mb-8"
                     src={
-                      (item.attributes.image.data &&
-                        item.attributes.image.data.attributes.name) ||
-                      ""
+                      item?.attributes?.image?.data &&
+                      item?.attributes?.image?.data?.attributes?.name
                     }
                     alt="content"
                   />
                   <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
                     {item.attributes.title}
                   </h3>
-                  <div className="bg-red-800 bg-green-800 bg-purple-800" />
+                  <div className="bg-red-800 bg-green-800 bg-purple-800 bg-blue-800" />
+
                   <button
                     className={
-                      'border-2 border-gray-300 ml-1 rounded-full w-6 h-6 focus:outline-none"></button' +
+                      "border-2 border-gray-300 ml-1 rounded-full w-6 h-6 focus:outline-none " +
                       `bg-${item.attributes.color}-800`
                     }
-                  />
+                  ></button>
                   <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
                     {item.attributes.title}
                   </h2>
