@@ -1,6 +1,7 @@
 import NavBar from '../components/NavBar';
 import '../styles/globals.css';
 import {useState, useEffect} from 'react';
+import Footer from '../components/Footer';
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
@@ -28,6 +29,7 @@ function MyApp({ Component, pageProps }) {
     <>
     <NavBar key={reloadKey} cart={cart}/>
      <Component removeFromCart={removeFromCart} addToCart={addToCart} clearCart={clearCart} {...pageProps} />
+     <Footer />
     </>
   )
 }
