@@ -23,7 +23,7 @@ const Products = (props) => {
                     className="h-96 rounded m-auto mb-8"
                     src={
                       item?.attributes?.image?.data &&
-                      item?.attributes?.image?.data?.attributes?.name
+                      item?.attributes?.image?.data?.attributes?.name || 'https://images.unsplash.com/photo-1611690889004-c009a7e03712?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z2xvdmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
                     }
                     alt="content"
                   />

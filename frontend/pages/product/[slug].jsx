@@ -13,7 +13,7 @@ const ProductDetail = ({ product, addToCart }) => {
               <img
                 alt="ecommerce"
                 className="rounded"
-                src={product?.attributes?.image?.data?.attributes?.name}
+                src={product?.attributes?.image?.data?.attributes?.name || 'https://images.unsplash.com/photo-1611690889004-c009a7e03712?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z2xvdmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'}
               />
             </div>
             <div className="w-full mt-6 lg:w-1/2 lg:pl-10 lg:py-6 lg:mt-0">
