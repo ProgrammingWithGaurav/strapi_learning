@@ -2,11 +2,12 @@ import NavBar from '../components/NavBar';
 import '../styles/globals.css';
 import {useState, useEffect} from 'react';
 import Footer from '../components/Footer';
+import Spinner from '../components/Spinner';
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {}, [])
   const addToCart  = (item, qty, price) => {
     const newCart = cart
     for (let index = 0; index < qty; index++) {
@@ -20,6 +21,7 @@ function MyApp({ Component, pageProps }) {
     let index = newCart.indexOf(cart);
     newCart.splice(index);
     setCart(newCart);
+    setSubtotal(0);
   }
   const clearCart  = (item) => {
     setCart([]);
@@ -27,8 +29,10 @@ function MyApp({ Component, pageProps }) {
   const [reloadKey, setReloadKey] = useState(1);
   return( 
     <>
+    {loading && 
+    <Spinner />}
     <NavBar key={reloadKey} cart={cart}/>
-     <Component removeFromCart={removeFromCart} addToCart={addToCart} clearCart={clearCart} {...pageProps} />
+     <Component setLoading={setLoading} setCart={setCart} cart={cart} removeFromCart={removeFromCart} addToCart={addToCart} clearCart={clearCart} {...pageProps} />
      <Footer />
     </>
   )

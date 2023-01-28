@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Spinner from "../components/Spinner";
 
 const Products = (props) => {
   return (
@@ -15,7 +16,7 @@ const Products = (props) => {
             </div>
           </div>
           <div className="flex flex-wrap -m-4">
-            {props?.products?.data.map((item) => (
+            {props?.products?.data ? props?.products?.data.map((item) => (
               <div key={item.attributes.slug} className="xl:w-1/4 md:w-1/2 p-4">
                 <div className="bg-gray-100 p-6 rounded-lg">
                   <img
@@ -50,7 +51,7 @@ const Products = (props) => {
                   </Link>
                 </div>
               </div>
-            ))}
+            )) : <Spinner />}
           </div>
         </div>
       </section>
